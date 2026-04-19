@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import "./Menu.css";
 
 
-export default function Menu() {
+export default function Menu({ onPlayerSelect, playerData }) {
   const navigate = useNavigate();
 
   const [hasSave, setHasSave] = useState(false);
@@ -19,9 +19,10 @@ export default function Menu() {
   };
 
   const handleLoadGame = () => {
-    // navigate("/game");
-    const heroData = document.cookie.split('; ').find(row => row.startsWith('heroData='))
-    console.log(JSON.parse(decodeURIComponent(heroData.split('=')[1])));
+    const heroData = document.cookie.split('; ').find(row => row.startsWith('heroData='));
+    onPlayerSelect(true);
+    playerData(JSON.parse(decodeURIComponent(heroData.split('=')[1])))
+    navigate("/game");
   };
 
 

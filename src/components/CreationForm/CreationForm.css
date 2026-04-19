@@ -1,9 +1,8 @@
-/* Container */
 #creation-menu {
   background: #242424;
   color: #eee;
   padding: 2rem;
-  border: 3px solid #5c4033; /* Dark Wood border */
+  border: 3px solid #5c4033;
   border-radius: 12px;
   max-width: 500px;
   margin: 40px auto;
@@ -19,7 +18,6 @@
   padding-bottom: 1rem;
 }
 
-/* Name Field */
 #name-field {
   margin: 1.5rem 0;
   display: flex;
@@ -36,7 +34,6 @@
   border-radius: 4px;
 }
 
-/* Race Selection Buttons */
 #race-menu {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -58,7 +55,6 @@
   color: #fff;
 }
 
-/* Character Summary Box */
 #char-summary {
   background: #1a1a1a;
   padding: 1rem;
@@ -68,7 +64,6 @@
   min-height: 50px;
 }
 
-/* Primary Action Buttons (Roll Stats / Finalize) */
 #roll-stats-btn, #finalization-btn {
   width: 100%;
   padding: 15px;
@@ -81,12 +76,12 @@
 }
 
 #roll-stats-btn {
-  background: #4a6741; /* Forest Green */
+  background: #4a6741;
   color: white;
 }
 
 #finalization-btn {
-  background: #8b0000; /* Blood Red */
+  background: #8b0000;
   color: white;
 }
 
@@ -97,7 +92,6 @@ button:disabled {
   opacity: 0.5;
 }
 
-/* Class Selection Container (when visible) */
 #class-selection-area {
   margin: 1rem 0;
   padding: 1rem;
@@ -112,12 +106,12 @@ button:disabled {
   }
 
   #race-menu {
-    grid-template-columns: 1fr; /* Stack races vertically or 1fr 1fr */
+    grid-template-columns: 1fr;
     gap: 8px;
   }
 
   .race-choice {
-    padding: 12px; /* Bigger buttons for mobile */
+    padding: 12px;
   }
 
   #char-summary {
