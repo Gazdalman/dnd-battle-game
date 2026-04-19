@@ -1,0 +1,66 @@
+/* Menu Container */
+#menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: #1a1a1a; /* Dark dungeon background */
+  border: 4px double #d4af37; /* Royal gold border */
+  border-radius: 8px;
+  max-width: 300px;
+  margin: 100px auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Base Button Style */
+.menu-button {
+  width: 100%;
+  padding: 12px 24px;
+  font-family: 'Georgia', serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background: #2c2c2c;
+  color: #d4af37;
+  border: 2px solid #d4af37;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover State */
+.menu-button:not(:disabled):hover {
+  background: #d4af37;
+  color: #1a1a1a;
+  box-shadow: 0 0 15px #d4af37;
+  transform: translateY(-2px);
+}
+
+/* Active/Click State */
+.menu-button:not(:disabled):active {
+  transform: translateY(1px);
+}
+
+/* Disabled State (No Save Found) */
+.menu-button:disabled {
+  background: #121212;
+  color: #444;
+  border-color: #444;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+  section.main-menu {
+    max-width: 90%; /* Take up most of the screen width */
+    margin: 50px auto; /* Less top margin on small screens */
+    padding: 1.5rem;
+  }
+
+  button {
+    padding: 16px 20px; /* Larger "tap target" for thumbs */
+    font-size: 1.1rem;
+  }
+}

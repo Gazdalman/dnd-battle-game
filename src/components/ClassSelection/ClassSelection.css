@@ -1,0 +1,115 @@
+/* Container for both Stats and Class */
+#class-and-stats {
+  display: flex;
+  gap: 2rem;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: #1e1e1e;
+  border: 1px solid #444;
+  border-radius: 8px;
+}
+
+/* Stat Block Styling */
+#stat-block {
+  flex: 1;
+  background: #121212;
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 3px solid #4a6741; /* Green for "Vitality/Stats" */
+}
+
+#stat-block h3 {
+  margin-top: 0;
+  color: #888;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#stat-block p {
+  font-family: 'Courier New', Courier, monospace; /* Makes numbers line up perfectly */
+  font-size: 1.1rem;
+  margin: 8px 0;
+  color: #ddd;
+}
+
+/* Class Selection Menu Styling */
+#class-selection-menu {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#class-select-header {
+  margin-top: 0;
+  color: #d4af37;
+  font-size: 1.2rem;
+}
+
+/* Individual Radio Option styling */
+.class-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: #2a2a2a;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.class-option:hover {
+  background: #333;
+  border-color: #d4af37;
+}
+
+/* Make the radio input itself look a bit more "Golden" */
+.class-option input[type="radio"] {
+  accent-color: #d4af37;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.class-option label {
+  cursor: pointer;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Highlight the label when checked (optional but cool) */
+.class-option:has(input:checked) {
+  background: #3d341b;
+  border-color: #d4af37;
+}
+
+.class-option:has(input:checked) label {
+  color: #fff;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  #class-and-stats {
+    flex-direction: column; /* Stack Stats on top of Class selection */
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  #stat-block {
+    border-left: none;
+    border-bottom: 3px solid #4a6741; /* Move the accent line to the bottom */
+    padding-bottom: 1rem;
+  }
+
+  #stat-block p {
+    display: flex;
+    justify-content: space-between; /* Keeps numbers aligned on edges of phone */
+    font-size: 1rem;
+  }
+
+  .class-option {
+    padding: 15px; /* Maximum thumb-friendliness */
+  }
+}

@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ClassSelection from "./ClassSelection";
+import ClassSelection from "../ClassSelection/ClassSelection";
+import "./CreationForm.css"
 
-export default function CreationForm() {
+export default function CreationForm({ setActivePlayer }) {
   const [selectedRace, setSelectedRace] = useState("");
+  const [selectedClass, setSelectedClass] = useState("");
   const [playerName, setPlayerName] = useState("");
-  const [currStats, setCurrStats] = useState({});
+  const [statBonus, setStatBonus] = useState({});
   const [baseStats, setBaseStats] = useState({});
-  const [rollStats, setRollStats] = useState(false)
+  const [rollStats, setRollStats] = useState(false);
+
+  const navigate = useNavigate();
 
   const setMessage = (race) => {
     switch (race) {
@@ -26,16 +30,16 @@ export default function CreationForm() {
     const statBoost = {str: 0, dex: 0, int: 0, con: 0, wis: 0, cha: 0};
     switch (race) {
       case "human":
-        setCurrStats({str: 1, dex: 1, int: 1, con: 1, wis: 1, cha: 1});
+        setStatBonus({str: 1, dex: 1, int: 1, con: 1, wis: 1, cha: 1});
         break
       case "elvish":
-        setCurrStats({...statBoost, int: 5, dex: 2, str: -2});
+        setStatBonus({...statBoost, int: 5, dex: 2, str: -2});
         break
       case "orcish":
-        setCurrStats({...statBoost, str: 5, con: 2, int: -2});
+        setStatBonus({...statBoost, str: 5, con: 2, int: -2});
         break
       default:
-        setCurrStats({str: 0, dex: 0, int: 0, con: 0, wis: 0, cha: 0});
+        setStatBonus({str: 0, dex: 0, int: 0, con: 0, wis: 0, cha: 0});
     }
   }
 
@@ -57,9 +61,33 @@ export default function CreationForm() {
     playerStats(e.target.value);
   }
 
+  const createCharacter = () => {
+
+    const totalStats = {
+      str: statBonus.str + baseStats.str,
+      dex: statBonus.dex + baseStats.dex,
+      int: statBonus.int + baseStats.int,
+      con: statBonus.con + baseStats.con,
+      wis: statBonus.wis + baseStats.wis,
+      cha: statBonus.cha + baseStats.cha
+    }
+
+    const character = {
+      name: playerName,
+      class: selectedClass,
+      stats: totalStats,
+      race: selectedRace
+    }
+
+    const charCookie = encodeURIComponent(JSON.stringify(character));
+    document.cookie = `heroData=${charCookie}; max-age=604800; path=/; SameSite=Lax`;
+    setActivePlayer(true);
+    navigate("/game");
+  }
+
   return (
-    <div>
-      <h2>Create Your Hero</h2>
+    <div id="creation-menu">
+      <h2 id="creation-form-header">Create Your Hero</h2>
       <div id="name-field">
         <label>Hero Name:</label>
         <input type="text" id="hero-name" placeholder="Enter name..."
@@ -89,12 +117,17 @@ export default function CreationForm() {
           Human
         </button>
       </div>
-      <div>{playerName ? playerName : "No name "} is {selectedRace ? selectedRace : "nothing"}: {selectedRace ? setMessage(selectedRace) : ""}</div>
+      <div id="char-summary">{playerName ? playerName : "No name "} is {selectedRace ? selectedRace : "nothing"}: {selectedRace ? setMessage(selectedRace) : ""}</div>
       {!rollStats ? <button
+        id="roll-stats-btn"
         onClick={handleRollStats}
         disabled={playerName && selectedRace ? false : true}
       >Roll Stats</button> :
-      <ClassSelection statBonus={currStats} baseStats={baseStats}/>}
+      <ClassSelection statBonus={statBonus} baseStats={baseStats} selectClass={setSelectedClass}/>}
+      <button
+      id="finalization-btn"
+      onClick={createCharacter}
+      disabled={selectedClass ? false : true}>Finalize</button>
     </div>
   );
 }

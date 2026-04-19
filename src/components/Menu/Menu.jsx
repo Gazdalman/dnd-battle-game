@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router"; // Note: v7 uses "react-router"
+import { useNavigate } from "react-router";
+import "./Menu.css";
+
 
 export default function Menu() {
   const navigate = useNavigate();
@@ -17,16 +19,19 @@ export default function Menu() {
   };
 
   const handleLoadGame = () => {
-    navigate("/game");
+    // navigate("/game");
+    const heroData = document.cookie.split('; ').find(row => row.startsWith('heroData='))
+    console.log(JSON.parse(decodeURIComponent(heroData.split('=')[1])));
   };
 
 
   return (
-    <section>
-      <button onClick={handleNewGame}>New Hero</button>
+    <div id="menu">
+      <button className="menu-button" onClick={handleNewGame}>New Hero</button>
       <button
-      disabled={hasSave}
+      className="menu-button"
+      disabled={!hasSave}
       onClick={handleLoadGame}>Continue</button>
-    </section>
+    </div>
   );
 }

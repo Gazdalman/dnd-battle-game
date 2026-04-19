@@ -1,0 +1,127 @@
+/* Container */
+#creation-menu {
+  background: #242424;
+  color: #eee;
+  padding: 2rem;
+  border: 3px solid #5c4033; /* Dark Wood border */
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 40px auto;
+  font-family: 'Garamond', serif;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+}
+
+#creation-form-header {
+  text-align: center;
+  color: #d4af37;
+  text-transform: uppercase;
+  border-bottom: 1px solid #5c4033;
+  padding-bottom: 1rem;
+}
+
+/* Name Field */
+#name-field {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#hero-name {
+  background: #111;
+  border: 1px solid #d4af37;
+  color: #fff;
+  padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 4px;
+}
+
+/* Race Selection Buttons */
+#race-menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.race-choice {
+  background: #333;
+  color: #ccc;
+  border: 1px solid #555;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.race-choice:hover {
+  border-color: #d4af37;
+  color: #fff;
+}
+
+/* Character Summary Box */
+#char-summary {
+  background: #1a1a1a;
+  padding: 1rem;
+  border-left: 4px solid #d4af37;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  min-height: 50px;
+}
+
+/* Primary Action Buttons (Roll Stats / Finalize) */
+#roll-stats-btn, #finalization-btn {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+#roll-stats-btn {
+  background: #4a6741; /* Forest Green */
+  color: white;
+}
+
+#finalization-btn {
+  background: #8b0000; /* Blood Red */
+  color: white;
+}
+
+button:disabled {
+  background: #333 !important;
+  color: #666 !important;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Class Selection Container (when visible) */
+#class-selection-area {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px dashed #d4af37;
+}
+
+@media (max-width: 600px) {
+  #creation-menu {
+    max-width: 95%;
+    padding: 1rem;
+    margin: 10px auto;
+  }
+
+  #race-menu {
+    grid-template-columns: 1fr; /* Stack races vertically or 1fr 1fr */
+    gap: 8px;
+  }
+
+  .race-choice {
+    padding: 12px; /* Bigger buttons for mobile */
+  }
+
+  #char-summary {
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+}
