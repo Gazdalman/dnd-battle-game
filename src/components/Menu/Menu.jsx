@@ -13,7 +13,6 @@ export default function Menu({ onPlayerSelect, playerData }) {
     setHasSave(cookieFound);
   }, []);
 
-  // 4. EVENT HANDLERS
   const handleNewGame = () => {
     navigate("/create");
   };
