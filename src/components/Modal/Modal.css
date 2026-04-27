@@ -1,0 +1,55 @@
+#modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85); /* Very dark */
+  backdrop-filter: blur(5px); /* Blurs the game behind it */
+  z-index: 1000;
+}
+
+#modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+}
+
+#death-modal {
+  text-align: center;
+  color: white;
+  font-family: 'Garamond', serif;
+}
+
+.death-title {
+  color: #8b0000;
+  font-size: 3rem;
+  text-shadow: 0 0 20px rgba(139, 0, 0, 0.8);
+  margin-bottom: 10px;
+}
+
+.death-icon {
+  font-size: 5rem;
+  margin: 20px 0;
+}
+
+.loading-bar-container {
+  width: 100%;
+  height: 4px;
+  background: #333;
+  margin: 20px 0;
+}
+
+.loading-bar-fill {
+  height: 100%;
+  background: #8b0000;
+  width: 0%;
+  animation: fillBar 4s linear forwards;
+}
+
+@keyframes fillBar {
+  from { width: 0%; }
+  to { width: 100%; }
+}
