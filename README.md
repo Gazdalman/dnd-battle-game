@@ -16,6 +16,18 @@ This project was built to bring the thrill of a fantasy encounter directly to th
 
 - **AI Collaboration**: Used to troubleshoot deployment routing issues and refine the documentation for the project.
 
+## Known Issues
+- Players sent back to main maenu after creating character instead of game. *Potentially caused by the cookie not being written before the navigation happens.*
+- Balance on damage is off by a wide margin.
+
+## Future Plans
+- [ ] Add a full backend for login/signup to facilitate permanent session continue.
+- [ ] Add more playr races and classes.
+- [ ] Add events and items to heal player.
+- [ ] Implement a player inventory.
+- [ ] Add non-hostile NPCs for different player interactions.
+- [ ] Add varying player abilities.
+
 # How to visit it
 You can start your adventure here: <br>
 https://gazdalman.github.io/dnd-battle-game
