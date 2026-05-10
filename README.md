@@ -16,9 +16,15 @@ This project was built to bring the thrill of a fantasy encounter directly to th
 
 - **AI Collaboration**: Used to troubleshoot deployment routing issues and refine the documentation for the project.
 
+## Changelog P1 to P2
+- Added combat logic
+- Added varying enemy types
+- Added battle log
+
 ## Known Issues
 - Players sent back to main maenu after creating character instead of game. *Potentially caused by the cookie not being written before the navigation happens.*
 - Balance on damage is off by a wide margin.
+- Adjusted styling to adjust for mobile devices.
 
 ## Future Plans
 - [ ] Add a full backend for login/signup to facilitate permanent session continue.
