@@ -112,6 +112,8 @@ export default function GameScreen({ data, dataSetter }) {
       setPlayerHP((prev) => Math.max(0, prev - finalDamage));
       if (playerHP - finalDamage <= 0) {
         setLog((prevLog) => ["DEFEAT...", ...prevLog]);
+        document.cookie = "continue_playing=; max-age=0; path=/; SameSite=Lax";
+        document.cookie = "heroData=; max-age=0; path=/; SameSite=Lax";
         setIsPlayerTurn(false);
 
         setModalContent(<GameOverModal />);
